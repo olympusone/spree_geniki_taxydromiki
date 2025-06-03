@@ -1,2 +1,9 @@
 ---
 en:
+  spree:
+    integrations:
+      geniki_taxydromiki:
+        description: Geniki Taxydromiki is a shipping integration for Greece.
+        username: Username
+        password: Password
+        app_key: Application Key

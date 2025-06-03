@@ -1,2 +1,9 @@
 ---
 el:
+  spree:
+    integrations:
+      geniki_taxydromiki:
+        description: Διασύνδεση με τις υπηρεσίες της Γενικής Ταχυδρομικής
+        username: Username
+        password: Password
+        app_key: Application Key
