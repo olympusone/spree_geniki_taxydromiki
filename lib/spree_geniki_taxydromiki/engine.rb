@@ -13,6 +13,10 @@ module SpreeGenikiTaxydromiki
       SpreeGenikiTaxydromiki::Config = SpreeGenikiTaxydromiki::Configuration.new
     end
 
+    initializer 'spree_geniki_taxydromiki.assets' do |app|
+      app.config.assets.precompile += %w[spree_geniki_taxydromiki_manifest]
+    end
+
     def self.activate
       Dir.glob(File.join(File.dirname(__FILE__), '../../app/**/*_decorator*.rb')) do |c|
         Rails.configuration.cache_classes ? require(c) : load(c)

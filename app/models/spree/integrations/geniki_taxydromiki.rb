@@ -5,9 +5,9 @@ module Spree
       preference :password, :string
       preference :app_key, :string
 
-      validates :username, presence: true
-      validates :password, presence: true
-      validates :app_key, presence: true
+      validates :preferred_username, presence: true
+      validates :preferred_password, presence: true
+      validates :preferred_app_key, presence: true
 
       def self.integration_group
         'shipping'
