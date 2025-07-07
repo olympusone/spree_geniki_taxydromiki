@@ -14,7 +14,14 @@ module SpreeGenikiTaxydromiki
     end
 
     initializer 'spree_geniki_taxydromiki.assets' do |app|
+      app.config.assets.paths << root.join('app/javascript')
       app.config.assets.precompile += %w[spree_geniki_taxydromiki_manifest]
+    end
+
+    initializer 'spree_geniki_taxydromiki.importmap', before: 'importmap' do |app|
+      app.config.importmap.paths << root.join('config/importmap.rb')
+      # https://github.com/rails/importmap-rails?tab=readme-ov-file#sweeping-the-cache-in-development-and-test
+      app.config.importmap.cache_sweepers << root.join('app/javascript')
     end
 
     def self.activate

@@ -51,6 +51,18 @@ Simply add this require statement to your spec_helper:
 require 'spree_geniki_taxydromiki/factories'
 ```
 
+## Testing
+
+By running the Spree test_app rake task, we can generate a barebones Spree application within our spec directory to run our tests against.
+
+We can do this with the following command from the root directory of our extension:
+
+```bash
+bundle exec rake test_app
+```
+
+After this command completes, you should be able to run `rspec`.
+
 ## Releasing a new version
 
 ```shell

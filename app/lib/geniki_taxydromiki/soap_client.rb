@@ -53,7 +53,7 @@ module GenikiTaxydromiki
           raise AuthenticationError, 'Auth key expired or invalid'
         end
 
-        response
+        result
       rescue RetryAuthKeyError
         retry
       rescue Savon::Error => e
@@ -77,11 +77,9 @@ module GenikiTaxydromiki
 
       result = response.body[:authenticate_response][:authenticate_result]
 
-      if result[:result].to_i.zero?
-        result[:key]
-      else
-        raise AuthenticationError, "Authentication failed with code: #{result[:result]}"
-      end
+      return result[:key] if result[:result].to_i.zero?
+
+      raise AuthenticationError, "Authentication failed with code: #{result[:result]}"
     rescue Savon::Error => e
       raise AuthenticationError, "Authentication failed: #{e.message}"
     end

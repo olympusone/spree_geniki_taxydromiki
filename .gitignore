@@ -21,3 +21,8 @@ public/spree
 .ruby-gemset
 *.gem
 */*.gem
+
+# Ignore all environment files (except templates).
+/.env*
+!/.env*.erb
+!/.env.example

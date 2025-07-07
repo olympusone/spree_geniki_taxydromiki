@@ -18,6 +18,8 @@ gem 'pg' if ENV['DB'] == 'postgres' || ENV['CI']
 
 gem 'sqlite3', '>= 2.0'
 
-gem 'savon', '~> 2.15'
+group :development do
+  gem 'htmlbeautifier', '>= 1.3'
+end
 
 gemspec

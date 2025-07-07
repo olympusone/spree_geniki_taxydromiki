@@ -9,4 +9,4 @@ el:
           username: Username
           password: Password
           app_key: Application Key
-
+          create_voucher: Δημιουργία Voucher
