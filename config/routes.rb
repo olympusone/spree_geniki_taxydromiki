@@ -1,3 +1,7 @@
 Spree::Core::Engine.add_routes do
-  # Add your extension routes here
+  namespace :geniki_taxydromiki do
+    post   'create',            to: 'geniki_taxydromiki#create'
+    get    ':id/print',         to: 'geniki_taxydromiki#print',   as: :print_voucher
+    post   ':id/cancel',        to: 'geniki_taxydromiki#cancel',  as: :cancel_voucher
+  end
 end

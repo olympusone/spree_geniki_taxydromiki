@@ -1,0 +1,10 @@
+<% if store_integration('geniki_taxydromiki').present? %>
+  <button class="text-left btn-light dropdown-item"
+    data-controller="geniki-taxydromiki"
+    data-action="geniki-taxydromiki#createVoucher"
+    data-geniki-taxydromiki-shipment-id-value="1"
+  >
+    <%= icon "package" %>
+    <%= Spree.t('admin.integrations.geniki_taxydromiki.create_voucher') %>
+  </button>
+<% end %>

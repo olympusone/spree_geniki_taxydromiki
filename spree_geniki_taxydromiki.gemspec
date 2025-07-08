@@ -30,13 +30,12 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  spree_version = '>= 5.0.4'
+  spree_version = '>= 5.1.0'
   s.add_dependency 'spree', spree_version
   s.add_dependency 'spree_storefront', spree_version
   s.add_dependency 'spree_admin', spree_version
   s.add_dependency 'spree_extension'
-  
-  s.add_dependency 'importmap-rails'
+
   s.add_dependency 'savon', '~> 2.15'
 
   s.add_development_dependency 'spree_dev_tools'

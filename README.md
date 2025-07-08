@@ -1,6 +1,6 @@
-# SpreeGenikiTaxydromiki
+# Spree Geniki Taxydromiki
 
-This is a Geniki Taxydromiki extension for [Spree Commerce](https://spreecommerce.org), an open source e-commerce platform built with Ruby on Rails. Adds the ability to manage Geniki Taxydromiki courier vouchers to Spree stores.
+This is a Geniki taxydromiki extension for [Spree Commerce](https://spreecommerce.org), an open source e-commerce platform built with Ruby on Rails. Adds the ability to manage Geniki Taxydromiki courier vouchers to Spree stores.
 
 [![Gem Version](https://badge.fury.io/rb/spree_geniki_taxydromiki.svg)](https://badge.fury.io/rb/spree_geniki_taxydromiki)
 
@@ -12,19 +12,13 @@ This is a Geniki Taxydromiki extension for [Spree Commerce](https://spreecommerc
     bundle add spree_geniki_taxydromiki
     ```
 
-2. Install the migrations:
+2. Run the install generator
 
-    ```sh
-    bundle exec rake railties:install:migrations FROM=spree_geniki_taxydromiki
+    ```ruby
+    bundle exec rails g spree_geniki_taxydromiki:install
     ```
 
-3. Run the migrations:
-
-    ```sh
-    bundle exec rails db:migrate
-    ```
-
-4. Restart your server
+3. Restart your server
 
   If your server was running, restart it so that it can find the assets properly.
 
