@@ -22,10 +22,10 @@ module SpreeGenikiTaxydromiki
         Email: order.email,
         Telephone: address.phone,
         Zip: address.zipcode,
-        Weight: shipment.variants.sum(&:weight), # TODO: handle weight calculation
-        Pieces: shipment.variants.count, # TODO: handle pieces calculation
-        Services: cod_payment ? "ΑΜ" : nil,  # e.g. COD, otherwise leave empty
-        CodAmount: cod_payment ? order.total : 0
+        Weight: shipment.item_weight,
+        Pieces: shipment.item_quantity,
+        Services: cod_payment ? 'ΑΜ' : nil, # e.g. COD, otherwise leave empty
+        CodAmount: cod_payment ? shipment.item_cost : 0
       }
 
       result = client.call(

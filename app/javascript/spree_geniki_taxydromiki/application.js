@@ -11,6 +11,6 @@ if (typeof window.Stimulus === "undefined") {
   application = window.Stimulus
 }
 
-import SpreeGenikiTaxydromikiController from 'spree_geniki_taxydromiki/controllers/spree_geniki_taxydromiki_controller' 
+import GenikiTaxydromikiController from 'spree_geniki_taxydromiki/controllers/geniki_taxydromiki_controller'
 
-application.register('spree_geniki_taxydromiki', SpreeGenikiTaxydromikiController)
+application.register('geniki-taxydromiki', GenikiTaxydromikiController)

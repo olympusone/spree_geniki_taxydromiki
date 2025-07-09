@@ -2,9 +2,10 @@
   <button class="text-left btn-light dropdown-item"
     data-controller="geniki-taxydromiki"
     data-action="geniki-taxydromiki#createVoucher"
-    data-geniki-taxydromiki-shipment-id-value="1"
+    data-geniki-taxydromiki-order-id-value="<%= @order.id %>"
   >
     <%= icon "package" %>
     <%= Spree.t('admin.integrations.geniki_taxydromiki.create_voucher') %>
   </button>
 <% end %>
+<%# TODO: add options for print, cancel and finalize %>
