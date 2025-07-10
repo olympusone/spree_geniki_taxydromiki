@@ -26,7 +26,7 @@ module SpreeGenikiTaxydromiki
         'Weight' => shipment.item_weight.to_f,
         'Pieces' => 1, # shipment.item_quantity,
         'Services' => cod_payment ? 'ΑΜ' : '', # e.g. COD, otherwise leave empty
-        'CodAmount' => cod_payment ? shipment.item_cost.to_f : 0,
+        'CodAmount' => cod_payment ? shipment.final_price_with_items.to_f : 0,
         'InsAmount' => 0 # Insurance amount, set to 0 if not applicable
       }
 

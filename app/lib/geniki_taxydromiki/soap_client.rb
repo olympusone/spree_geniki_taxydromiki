@@ -24,7 +24,7 @@ module GenikiTaxydromiki
       @client = Savon.client(wsdl: wsdl_url)
     end
 
-    def call(method, message)
+    def call(method, message = {})
       retried = false
 
       begin
