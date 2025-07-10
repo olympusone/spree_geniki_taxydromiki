@@ -1,49 +1,37 @@
-import { Controller } from '@hotwired/stimulus'
-import { post } from '@rails/request.js'
+import { Controller } from '@hotwired/stimulus';
+import { post } from '@rails/request.js';
 
 export default class extends Controller {
   static values = {
-    orderId: Number
-  }
-
-  connect() {
-    console.log('Hello')
-  }
+    orderId: Number,
+  };
 
   async createVoucher(event) {
-    event.preventDefault()
+    event.preventDefault();
 
     if (window.confirm('Are you sure?')) {
-      console.log('Creating', this.orderIdValue)
+      const response = await post(
+        `${Spree.adminPath}/geniki_taxydromiki/${this.orderIdValue}/create`,
+        {
+          responseKind: 'json',
+        }
+      );
 
-      // TODO
-      // post(this.adminAssetsPathValue, {
-      //   body: JSON.stringify({
-      //     asset: {
-      //       type: this.assetClassValue,
-      //       viewable_type: this.viewableTypeValue,
-      //       viewable_id: this.viewableIdValue,
-      //       attachment: response.signed_id
-      //     }
-      //   }),
-      //   responseKind: 'turbo-stream'
-      // })
-
-      // const response = await post(`${Spree.adminPath}/action_text/video_embeds`, { body: JSON.stringify({ url: input.value }), responseKind: 'json' })
-
-      // if (response.ok) {
-      //   const { sgid, content } = await response.json
-      // } else {
-      //   const { error } = await response.json
-      // }
+      if (response.ok) {
+        const { message } = await response.json;
+        console.log('Voucher created successfully:', message);
+      } else {
+        const { error } = await response.json;
+        console.error('Error creating voucher:', error);
+      }
     }
   }
 
   async printVoucher(event) {
-    event.preventDefault()
+    event.preventDefault();
 
     if (window.confirm('Are you sure?')) {
-      console.log('Printing', this.orderIdValue)
+      console.log('Printing', this.orderIdValue);
 
       // TODO
       // Implement the logic to print the voucher
@@ -52,10 +40,10 @@ export default class extends Controller {
   }
 
   async cancelVoucher(event) {
-    event.preventDefault()
+    event.preventDefault();
 
     if (window.confirm('Are you sure?')) {
-      console.log('Cancelling', this.orderIdValue)
+      console.log('Cancelling', this.orderIdValue);
 
       // TODO
       // Implement the logic to cancel the voucher
@@ -64,10 +52,10 @@ export default class extends Controller {
   }
 
   async finalizeVoucher(event) {
-    event.preventDefault()
+    event.preventDefault();
 
     if (window.confirm('Are you sure?')) {
-      console.log('Finalizing', this.orderIdValue)
+      console.log('Finalizing', this.orderIdValue);
 
       // TODO
       // Implement the logic to finalize the voucher

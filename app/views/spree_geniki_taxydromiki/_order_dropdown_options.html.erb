@@ -1,4 +1,11 @@
 <% if store_integration('geniki_taxydromiki').present? %>
+  <%= link_to_with_icon 'package', 
+    Spree.t('admin.integrations.geniki_taxydromiki.create_voucher'), 
+    spree.admin_geniki_taxydromiki_create_path(@order.id), 
+    class: 'dropdown-item btn-light', 
+    data: { turbo_method: :post, turbo_confirm: Spree.t(:are_you_sure) } 
+  %>
+
   <button class="text-left btn-light dropdown-item"
     data-controller="geniki-taxydromiki"
     data-action="geniki-taxydromiki#createVoucher"

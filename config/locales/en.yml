@@ -9,3 +9,10 @@ en:
           username: Username
           password: Password
           app_key: Application Key
+          create_voucher: Create Voucher
+          voucher_successfully_created: Voucher successfully created
+          voucher_successfully_canceled: Voucher successfully canceled
+          voucher_successfully_finalized: Voucher successfully finalized
+          voucher_creation_failed: Voucher creation failed
+          voucher_cancellation_failed: Voucher cancellation failed
+          voucher_finalization_failed: Voucher finalization failed

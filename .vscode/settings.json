@@ -1,0 +1,23 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "prettier.requireConfig": true,
+  "files.eol": "\n",
+  "markdownlint.config": {
+    "no-duplicate-heading": {
+      "siblings_only": true
+    }
+  },
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    {
+      "text": "Use conventional commit message format. Make it as short as possible.",
+    }
+  ],
+  "i18n-ally.localesPaths": [
+    "config/locales"
+  ],
+  "[erb]": {
+    "editor.defaultFormatter": "aliariff.vscode-erb-beautify",
+  }
+}

@@ -37,8 +37,8 @@ module GenikiTaxydromiki
         )
 
         result = response.body.dig(
-          "#{method}_response",
-          "#{method}_result"
+          :"#{method}_response",
+          :"#{method}_result"
         )
 
         if result && result[:result].to_i == 11

@@ -1,8 +1,8 @@
 Spree::Core::Engine.add_routes do
-  namespace :geniki_taxydromiki do
-    post 'create',       to: 'geniki_taxydromiki#create'
-    get  ':id/print',    to: 'geniki_taxydromiki#print',   as: :print_voucher
-    post ':id/cancel',   to: 'geniki_taxydromiki#cancel',  as: :cancel_voucher
-    post ':id/finalize', to: 'geniki_taxydromiki#finalize',  as: :finalize_voucher
+  namespace :admin, path: Spree.admin_path do
+    post 'geniki_taxydromiki/:order_id/create',   to: 'geniki_taxydromiki#create',   as: :geniki_taxydromiki_create
+    get  'geniki_taxydromiki/:order_id/print',    to: 'geniki_taxydromiki#print',    as: :geniki_taxydromiki_print
+    post 'geniki_taxydromiki/:order_id/cancel',   to: 'geniki_taxydromiki#cancel',   as: :geniki_taxydromiki_cancel
+    post 'geniki_taxydromiki/:order_id/finalize', to: 'geniki_taxydromiki#finalize', as: :geniki_taxydromiki_finalize
   end
 end

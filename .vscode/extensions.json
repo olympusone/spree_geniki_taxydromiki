@@ -1,0 +1,32 @@
+{
+  "recommendations": [
+    "piotrpalarz.vscode-gitignore-generator",
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
+    "mads-hartmann.bash-ide-vscode",
+    "chouzz.vscode-better-align",
+    "streetsidesoftware.code-spell-checker",
+    "mikestead.dotenv",
+    "editorconfig.editorconfig",
+    "aliariff.vscode-erb-beautify",
+    "jasonlhy.hungry-delete",
+    "lokalise.i18n-ally",
+    "visualstudioexptteam.vscodeintellicode",
+    "yzhang.markdown-all-in-one",
+    "davidanson.vscode-markdownlint",
+    "esbenp.prettier-vscode",
+    "bung87.rails",
+    "shanehofstetter.rails-i18n",
+    "aki77.rails-routes",
+    "rubocop.vscode-rubocop",
+    "shopify.ruby-lsp",
+    "hridoy.rails-snippets",
+    "castwide.solargraph",
+    "bradlc.vscode-tailwindcss",
+    "meganrogge.template-string-converter",
+    "koichisasada.vscode-rdbg",
+    "bung87.vscode-gemfile",
+    "redhat.vscode-yaml",
+    "pascalreitermann93.vscode-yaml-sort"
+  ]
+}
