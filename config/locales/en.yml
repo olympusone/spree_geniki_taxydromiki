@@ -10,6 +10,7 @@ en:
           password: Password
           app_key: Application Key
           create_voucher: Create Voucher
+          print_voucher: Print Voucher
           cancel_voucher: Cancel Voucher
           reactivate_voucher: Reactivate Voucher
           voucher_successfully_created: Voucher successfully created

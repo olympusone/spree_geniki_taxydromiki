@@ -21,6 +21,10 @@ module Spree
     def can_finalize_voucher_job?
       job_id? && !job_canceled_at? && !job_finalized_at? && ready?
     end
+
+    def can_print_voucher?
+      job_id? && !job_canceled_at?
+    end
   end
 end
 

@@ -10,6 +10,7 @@ el:
           password: Password
           app_key: Application Key
           create_voucher: Δημιουργία Voucher
+          print_voucher: Εκτύπωση Voucher
           cancel_voucher: Ακύρωση Voucher
           reactivate_voucher: Ενεργοποίηση Voucher
           voucher_successfully_created: Voucher δημιουργήθηκε επιτυχώς
