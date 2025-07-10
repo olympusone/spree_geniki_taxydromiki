@@ -5,11 +5,13 @@ module Spree
       preference :username, :string
       preference :password, :string
       preference :app_key, :string
+      preference :paper_type, :string, default: 'Flyer'
 
       validates :preferred_wsdl_url, presence: true
       validates :preferred_username, presence: true
       validates :preferred_password, presence: true
       validates :preferred_app_key, presence: true
+      validates :preferred_paper_type, presence: true, inclusion: { in: %w[Flyer Sticker] }
 
       def self.integration_group
         'shipping'

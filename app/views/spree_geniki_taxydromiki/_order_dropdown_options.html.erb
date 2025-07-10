@@ -8,13 +8,15 @@
     %>
   <% end %>
 
-  <% if @order.can_print_voucher? %>
-    <%= link_to_with_icon 'package',
-      Spree.t('admin.integrations.geniki_taxydromiki.print_voucher'),
-      spree.admin_geniki_taxydromiki_print_path(@order.id),
-      class: 'dropdown-item btn-light',
-      data: { turbo_method: :post, turbo_confirm: Spree.t(:are_you_sure) }
-    %>
+  <% if @order.can_print_voucher? %>    
+    <button 
+      class='dropdown-item btn-light'
+      data-controller='geniki-taxydromiki'
+      data-action='geniki-taxydromiki#printVoucher'
+      data-geniki-taxydromiki-order-id-param='<%= @order.id %>'>
+      <%= icon 'package' %>
+      <%= Spree.t('admin.integrations.geniki_taxydromiki.print_voucher') %>
+    </button>
   <% end %>
 
   <% if @order.can_cancel_voucher_job? %>

@@ -85,8 +85,6 @@ module GenikiTaxydromiki
       raise AuthenticationError, "Authentication failed: #{e.message}"
     end
 
-    private
-
     def auth_key
       Rails.cache.fetch('geniki_taxydromiki_auth_key', expires_in: 6.hours) do
         authenticate!

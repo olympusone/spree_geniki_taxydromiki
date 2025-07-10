@@ -17,7 +17,6 @@ module Spree
           end
 
           flash[:success] = Spree.t('admin.integrations.geniki_taxydromiki.voucher_successfully_created')
-
           redirect_to spree.admin_order_path(@order)
         rescue ActiveRecord::RecordNotFound
           order_not_found
@@ -25,17 +24,39 @@ module Spree
           Rails.logger.error "Geniki Taxydromiki Error: #{e.message}"
 
           flash[:error] = Spree.t('admin.integrations.geniki_taxydromiki.voucher_creation_failed')
-
           redirect_to spree.admin_order_path(@order)
         end
       end
 
       def print
-        # TODO
-        # pdf_url = "https://testvoucher.taxydromiki.gr/JobServicesV2.asmx/GetVoucherPdf?authKey=#{auth_key}&voucherNo=#{voucher_number}&format=Flyer&extraInfoFormat=None"
-        render json: {
-          ok: true
-        }
+        begin
+          load_order
+
+          voucher_numbers = @order.shipments.select(&:can_print_voucher?)
+                                  .map(&:tracking).compact
+
+          if voucher_numbers.empty?
+            raise StandardError, Spree.t('admin.integrations.geniki_taxydromiki.voucher_print_failed')
+          else
+            pdf_url = SpreeGenikiTaxydromiki::PrintVouchers.new(voucher_numbers).call
+
+            SpreeGenikiTaxydromiki::FinalizeVouchersJob.perform_later
+
+            render json: {
+              url: pdf_url
+            }, status: 200
+          end
+        rescue ActiveRecord::RecordNotFound
+          render json: {
+            error: flash_message_for(Spree::Order.new, :not_found)
+          }, status: 404
+        rescue StandardError => e
+          Rails.logger.error "Geniki Taxydromiki Error: #{e.message}"
+
+          render json: {
+            error: Spree.t('admin.integrations.geniki_taxydromiki.voucher_print_failed')
+          }, status: 400
+        end
       end
 
       def cancel
@@ -51,7 +72,6 @@ module Spree
           end
 
           flash[:success] = Spree.t('admin.integrations.geniki_taxydromiki.voucher_successfully_canceled')
-
           redirect_to spree.admin_order_path(@order)
         rescue ActiveRecord::RecordNotFound
           order_not_found
@@ -59,7 +79,6 @@ module Spree
           Rails.logger.error "Geniki Taxydromiki Error: #{e.message}"
 
           flash[:error] = Spree.t('admin.integrations.geniki_taxydromiki.voucher_cancellation_failed')
-
           redirect_to spree.admin_order_path(@order)
         end
       end

@@ -5,10 +5,11 @@ el:
       integrations:
         geniki_taxydromiki:
           description: Διασύνδεση με τις υπηρεσίες της Γενικής Ταχυδρομικής
-          wsdl_url: WSDL URL
-          username: Username
-          password: Password
-          app_key: Application Key
+          preferred_wsdl_url: WSDL URL
+          preferred_username: Username
+          preferred_password: Password
+          preferred_app_key: Application Key
+          preferred_paper_type: Τύπος Χαρτιού
           create_voucher: Δημιουργία Voucher
           print_voucher: Εκτύπωση Voucher
           cancel_voucher: Ακύρωση Voucher
@@ -17,5 +18,6 @@ el:
           voucher_successfully_canceled: Voucher ακυρώθηκε επιτυχώς
           voucher_successfully_reactivated: Voucher ενεργοποιήθηκε επιτυχώς
           voucher_creation_failed: Αποτυχία δημιουργίας Voucher
+          voucher_print_failed: Αποτυχία εκτύπωσης Voucher
           voucher_cancellation_failed: Αποτυχία ακύρωσης Voucher
           voucher_reactivation_failed: Αποτυχία ενεργοποίησης Voucher

@@ -5,10 +5,11 @@ en:
       integrations:
         geniki_taxydromiki:
           description: Geniki Taxydromiki is a shipping integration for Greece
-          wsdl_url: WSDL URL
-          username: Username
-          password: Password
-          app_key: Application Key
+          preferred_wsdl_url: WSDL URL
+          preferred_username: Username
+          preferred_password: Password
+          preferred_app_key: Application Key
+          preferred_paper_type: Paper Type
           create_voucher: Create Voucher
           print_voucher: Print Voucher
           cancel_voucher: Cancel Voucher
@@ -17,5 +18,6 @@ en:
           voucher_successfully_canceled: Voucher successfully canceled
           voucher_successfully_reactivated: Voucher successfully reactivated
           voucher_creation_failed: Voucher creation failed
+          voucher_print: Voucher printing failed
           voucher_cancellation_failed: Voucher cancellation failed
           voucher_reactivation_failed: Voucher reactivation failed

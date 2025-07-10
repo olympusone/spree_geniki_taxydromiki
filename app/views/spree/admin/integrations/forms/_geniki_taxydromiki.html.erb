@@ -5,6 +5,12 @@
       <%= preference_field(@integration, form, 'username', i18n_scope: 'admin.integrations.geniki_taxydromiki') %>
       <%= preference_field(@integration, form, 'password', i18n_scope: 'admin.integrations.geniki_taxydromiki') %>
       <%= preference_field(@integration, form, 'app_key', i18n_scope: 'admin.integrations.geniki_taxydromiki') %>
+
+      <div class="form-group">
+        <%= form.label :preferred_paper_type, Spree.t('admin.integrations.geniki_taxydromiki.preferred_paper_type') %>
+        <%= form.select :preferred_paper_type, options_for_select(['Flyer', 'Sticker'], @integration.preferred_paper_type), {}, { class: 'custom-select', data: {  action: 'auto-submit#submit' } } %>
+        <%= form.error_message_on :preferred_paper_type %>
+      </div>
     </div>
   </div>
 </div>
