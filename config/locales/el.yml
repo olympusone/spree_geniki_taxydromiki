@@ -10,9 +10,11 @@ el:
           password: Password
           app_key: Application Key
           create_voucher: Δημιουργία Voucher
+          cancel_voucher: Ακύρωση Voucher
+          reactivate_voucher: Ενεργοποίηση Voucher
           voucher_successfully_created: Voucher δημιουργήθηκε επιτυχώς
           voucher_successfully_canceled: Voucher ακυρώθηκε επιτυχώς
-          voucher_successfully_finalized: Voucher ολοκληρώθηκε επιτυχώς
+          voucher_successfully_reactivated: Voucher ενεργοποιήθηκε επιτυχώς
           voucher_creation_failed: Αποτυχία δημιουργίας Voucher
           voucher_cancellation_failed: Αποτυχία ακύρωσης Voucher
-          voucher_finalization_failed: Αποτυχία ολοκλήρωσης Voucher
+          voucher_reactivation_failed: Αποτυχία ενεργοποίησης Voucher

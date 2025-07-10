@@ -5,6 +5,22 @@ module Spree
     def item_quantity
       manifest.map { |m| m.line_item.quantity }.sum
     end
+
+    def can_create_voucher_job?
+      !job_id? && ready?
+    end
+
+    def can_cancel_voucher_job?
+      job_id? && !job_canceled_at? && ready?
+    end
+
+    def can_reactivate_voucher_job?
+      job_id? && job_canceled_at? && ready?
+    end
+
+    def can_finalize_voucher_job?
+      job_id? && !job_canceled_at? && !job_finalized_at? && ready?
+    end
   end
 end
 

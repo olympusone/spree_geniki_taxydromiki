@@ -41,7 +41,8 @@ module GenikiTaxydromiki
           :"#{method}_result"
         )
 
-        if result && result[:result].to_i == 11
+        # Check if the result contain the authentication error
+        if result.respond_to?(:result) && result[:result].to_i == 11
           unless retried
             Rails.cache.delete('geniki_taxydromiki_auth_key')
 

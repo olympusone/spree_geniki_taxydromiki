@@ -1,18 +1,28 @@
 <% if store_integration('geniki_taxydromiki').present? %>
-  <%= link_to_with_icon 'package', 
-    Spree.t('admin.integrations.geniki_taxydromiki.create_voucher'), 
-    spree.admin_geniki_taxydromiki_create_path(@order.id), 
-    class: 'dropdown-item btn-light', 
-    data: { turbo_method: :post, turbo_confirm: Spree.t(:are_you_sure) } 
-  %>
+  <% if @order.can_create_voucher_job? %>
+    <%= link_to_with_icon 'package',
+      Spree.t('admin.integrations.geniki_taxydromiki.create_voucher'),
+      spree.admin_geniki_taxydromiki_create_path(@order.id),
+      class: 'dropdown-item btn-light',
+      data: { turbo_method: :post, turbo_confirm: Spree.t(:are_you_sure) }
+    %>
+  <% end %>
 
-  <button class="text-left btn-light dropdown-item"
-    data-controller="geniki-taxydromiki"
-    data-action="geniki-taxydromiki#createVoucher"
-    data-geniki-taxydromiki-order-id-value="<%= @order.id %>"
-  >
-    <%= icon "package" %>
-    <%= Spree.t('admin.integrations.geniki_taxydromiki.create_voucher') %>
-  </button>
+  <% if @order.can_reactivate_voucher_job? %>
+    <%= link_to_with_icon 'package',
+      Spree.t('admin.integrations.geniki_taxydromiki.reactivate_voucher'),
+      spree.admin_geniki_taxydromiki_reactivate_path(@order.id),
+      class: 'dropdown-item btn-light',
+      data: { turbo_method: :post, turbo_confirm: Spree.t(:are_you_sure) }
+    %>
+  <% end %>
+
+  <% if @order.can_cancel_voucher_job? %>
+    <%= link_to_with_icon 'cancel',
+      Spree.t('admin.integrations.geniki_taxydromiki.cancel_voucher'),
+      spree.admin_geniki_taxydromiki_cancel_path(@order.id),
+      class: 'dropdown-item btn-danger',
+      data: { turbo_method: :post, turbo_confirm: Spree.t(:are_you_sure) }
+    %>
+  <% end %>
 <% end %>
-<%# TODO: add options for print, cancel and finalize %>

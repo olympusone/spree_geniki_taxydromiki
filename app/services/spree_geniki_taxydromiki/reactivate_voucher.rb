@@ -1,5 +1,5 @@
 module SpreeGenikiTaxydromiki
-  class CancelVoucher
+  class ReactivateVoucher
     attr_reader :shipment, :client
 
     def initialize(shipment)
@@ -13,13 +13,13 @@ module SpreeGenikiTaxydromiki
         :cancel_job,
         {
           nJobId: shipment.job_id,
-          bCancel: true
+          bCancel: false
         }
       )
 
       return true if result
 
-      raise CancelJobError, "Failed to cancel voucher job: #{shipment.job_id}"
+      raise CancelJobError, "Failed to reactivate voucher job: #{shipment.job_id}"
     end
 
     class CancelJobError < StandardError; end
