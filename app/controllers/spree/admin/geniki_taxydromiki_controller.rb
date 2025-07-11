@@ -40,8 +40,6 @@ module Spree
           else
             pdf_url = SpreeGenikiTaxydromiki::PrintVouchers.new(voucher_numbers).call
 
-            SpreeGenikiTaxydromiki::FinalizeVouchersJob.perform_later
-
             render json: {
               url: pdf_url
             }, status: 200
